@@ -4,8 +4,14 @@ import { studio } from "@/lib/content";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Grey Barnacle — Make the unfamiliar visible", template: "%s — Grey Barnacle" },
+  title: { 
+    default: "Grey Barnacle — Make the unfamiliar visible", 
+    template: "%s — Grey Barnacle" 
+  },
   description: "Illustration workshops for learning to make images with new technologies.",
+  verification: {
+    google: "kqzQCO2bPV_a9dO6MnnIqHRweGB05qXyICztB4K7VI0",
+  },
 };
 
 const nav = [
