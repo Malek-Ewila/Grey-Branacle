@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { studio } from "@/lib/content";
+import SiteAnimations from "@/components/site-animations";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" className="hidden border rule px-3 py-2 transition-colors hover:border-[var(--accent)] sm:block">Instagram ↗</a>
           </nav>
         </header>
-        <main id="main-content">{children}</main>
+        <SiteAnimations>{children}</SiteAnimations>
         <footer className="site-shell mt-24 border-t rule py-8">
           <div className="flex flex-col justify-between gap-5 text-xs text-muted sm:flex-row sm:items-center">
             <p className="font-mono text-[.65rem] uppercase tracking-wider">© {new Date().getFullYear()} Grey Barnacle · Draw beyond the expected</p>
