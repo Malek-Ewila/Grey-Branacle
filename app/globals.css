@@ -40,10 +40,16 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .rule { border-color: var(--border); }
 .surface { background: var(--surface); }
 .accent-text { color: var(--accent-soft); }
-.button-primary { align-items: center; background: var(--accent); border: 1px solid var(--accent); color: var(--foreground); display: inline-flex; font-family: var(--font-ibm-plex-mono), monospace; font-size: .72rem; font-weight: 500; gap: 1.4rem; justify-content: space-between; letter-spacing: .04em; min-height: 3.4rem; padding: .9rem 1.1rem; transition: background .2s, border-color .2s; }
+.button-primary { align-items: center; background: var(--accent); border: 1px solid var(--accent); color: var(--foreground); display: inline-flex; font-family: var(--font-ibm-plex-mono), monospace; font-size: .72rem; font-weight: 500; gap: 1.4rem; justify-content: space-between; letter-spacing: .04em; min-height: 3.4rem; padding: .9rem 1.1rem; }
 .button-primary:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
-.button-secondary { align-items: center; border: 1px solid var(--border); display: inline-flex; font-family: var(--font-ibm-plex-mono), monospace; font-size: .72rem; gap: 1.4rem; min-height: 3.4rem; padding: .9rem 1.1rem; transition: border-color .2s, background .2s; }
+.button-secondary { align-items: center; border: 1px solid var(--border); display: inline-flex; font-family: var(--font-ibm-plex-mono), monospace; font-size: .72rem; gap: 1.4rem; min-height: 3.4rem; padding: .9rem 1.1rem; }
 .button-secondary:hover { background: var(--surface-raised); border-color: var(--accent); }
+.button-primary, .button-secondary { transition: background .25s, border-color .25s, transform .3s cubic-bezier(.2,.75,.25,1); }
+.button-primary:hover, .button-primary:focus-visible, .button-secondary:hover, .button-secondary:focus-visible { transform: translateY(-3px); }
+.button-primary span[aria-hidden="true"], .button-secondary span[aria-hidden="true"] { display: inline-block; transition: transform .3s cubic-bezier(.2,.75,.25,1); }
+.button-primary:hover span[aria-hidden="true"], .button-primary:focus-visible span[aria-hidden="true"], .button-secondary:hover span[aria-hidden="true"], .button-secondary:focus-visible span[aria-hidden="true"] { transform: translateX(5px); }
+main article:not(.site-shell) { transition: transform .35s cubic-bezier(.2,.75,.25,1), border-color .35s; }
+main article:not(.site-shell):hover, main article:not(.site-shell):focus-within { transform: translateY(-5px); }
 
 .image-fallback { background-color: #17171a; background-image: linear-gradient(132deg, transparent 0 62%, rgba(100,116,139,.16) 62.2%, transparent 62.7%), linear-gradient(38deg, transparent 0 48%, rgba(228,228,231,.09) 48.2%, transparent 48.7%); inset: 0; overflow: hidden; position: absolute; }
 .image-fallback::before { border: 1px solid rgba(161,161,170,.36); border-radius: 48% 52% 41% 59% / 57% 43% 57% 43%; content: ""; height: 70%; left: 17%; position: absolute; top: 14%; transform: rotate(-22deg); width: 66%; }
@@ -55,7 +61,23 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .site-nav-link { transition: color .2s; }
 .site-nav-link:hover, .site-nav-link[aria-current="page"] { color: var(--accent-soft); }
 
+@keyframes server-text-rise {
+  from { opacity: 0; translate: 0 5px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-enter] { animation: server-text-rise .72s cubic-bezier(.2,.75,.25,1) both; }
+  [data-enter="2"] { animation-delay: .08s; }
+  [data-enter="3"] { animation-delay: .16s; }
+  [data-enter="4"] { animation-delay: .24s; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  .group:hover img { scale: 1 !important; }
+  main article:not(.site-shell):hover, main article:not(.site-shell):focus-within,
+  .button-primary:hover, .button-primary:focus-visible, .button-secondary:hover, .button-secondary:focus-visible,
+  .button-primary span[aria-hidden="true"], .button-secondary span[aria-hidden="true"] { transform: none !important; }
 }

@@ -7,11 +7,11 @@ export default function HomePage() {
     <>
       <section className="site-shell grid min-h-[76vh] items-center gap-10 py-16 lg:grid-cols-[1.15fr_.85fr] lg:py-24">
         <div>
-          <p className="eyebrow mb-8">Independent illustration studio <span className="text-muted">/ EST. {studio.established}</span></p>
-          <h1 className="display max-w-4xl">Draw the<br />world<br /><span className="accent-text">differently.</span></h1>
+          <p data-enter="1" className="eyebrow mb-8">Independent illustration studio <span className="text-muted">/ EST. {studio.established}</span></p>
+          <h1 data-enter="2" className="display max-w-4xl">Draw the<br />world<br /><span className="accent-text">differently.</span></h1>
           <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <p className="max-w-sm text-sm leading-7 text-muted">{studio.introduction}</p>
-            <Link href="/workshops" className="button-primary">Explore workshops <span aria-hidden="true">↗</span></Link>
+            <p data-enter="3" className="max-w-sm text-sm leading-7 text-muted">{studio.introduction}</p>
+            <Link data-enter="4" href="/workshops" className="button-primary">Explore workshops <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
         <figure>

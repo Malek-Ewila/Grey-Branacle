@@ -5,8 +5,8 @@ export const metadata: Metadata = { title: "Info" };
 
 export default function InfoPage() {
   return <div className="site-shell py-16 sm:py-24">
-    <p className="eyebrow mb-8">About Grey Barnacle <span className="text-muted">/ {studio.location}</span></p>
-    <h1 className="section-title max-w-5xl">Make with new tools.<br /><span className="text-muted">Stay true to your eye.</span></h1>
+    <p data-enter="1" className="eyebrow mb-8">About Grey Barnacle <span className="text-muted">/ {studio.location}</span></p>
+    <h1 data-enter="2" className="section-title max-w-5xl">Make with new tools.<br /><span className="text-muted">Stay true to your eye.</span></h1>
     <div className="mt-16 grid gap-12 border-t rule pt-10 md:grid-cols-[.65fr_1.35fr]">
       <p className="eyebrow">Our point of view</p>
       <div className="max-w-3xl space-y-6 text-base leading-8 text-muted"><p>{studio.introduction}</p><p>{studio.story}</p><p>Come with a finished practice or a half-formed idea. Bring questions. Leave with experiments worth following.</p></div>
